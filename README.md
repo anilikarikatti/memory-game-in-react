@@ -43,7 +43,7 @@ cd my-app
 
 npm start
 
-for run [link ](https://trying-vercel-anilikarikatti.vercel.app/) 
+for run [click here ](https://trying-vercel-anilikarikatti.vercel.app/) 
 
 
 
