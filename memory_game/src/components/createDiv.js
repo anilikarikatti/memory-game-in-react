@@ -4,12 +4,13 @@
 import { useState } from "react";
 
 
-function CreateDiv({ke,number}){ 
+function CreateDiv({ke,number,count,setCount,setWin,win,inc,rd_count}){ 
   
 
-
+  let [clicked,setClicked] = useState(false)
   let [num,setNum]=useState(number);
   let [redColor,SetRedColor]=useState(false);
+
 
   if(num && !redColor){
     SetRedColor(true);
@@ -24,23 +25,33 @@ function CreateDiv({ke,number}){
 
   return (
         <>  
-            <div key={ke} className={number?'red':'white'} onClick={((e)=>{ if(e.target.className == 'red'){
+            {/* {number ? <RedCount/>:''} */}
+            <div key={ke} className={number?'red':'white'} onClick={win ?((e)=>{ if(e.target.className == 'red'){
               // console.log(e.target.className);
               SetRedColor(true);
+              if(number && !clicked){
+                inc()
+                setClicked(true)
+              }
+            }
+            else{
+                setWin(false)
             }
             }
           
-  )} style={{
+  ) : ""} style={{
                         height:'100px',
                         border:'2px solid black',
                         flex:'auto',
                         backgroundColor:(redColor ?'red':'white')
                       }}></div>
 
-          
+                   
       </>
+                    
     )
+
   }
   
-  
+
   export default CreateDiv;
